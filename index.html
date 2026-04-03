@@ -332,7 +332,7 @@ footer { background: var(--white); padding: 6rem 5%; text-align: center; border-
             <ul class="nav-links">
                 <li><a href="#menu">NUESTRO MENÚ</a></li>
                 <li><a href="#cotizacion">COTIZAR</a></li>
-                <li><a href="#contacto">CONTACTO</a></li>
+                <li><a href="#contacto">CONTÁCTANOS</a></li>
             </ul>
         </nav>
     </header>
@@ -359,7 +359,7 @@ footer { background: var(--white); padding: 6rem 5%; text-align: center; border-
             <div class="category-tabs">
                 <button class="tab-btn active" onclick="handleCategoryClick(event, 'salados')">Bocaditos Salados</button>
                 <button class="tab-btn" onclick="handleCategoryClick(event, 'dulces')">Bocaditos Dulces</button>
-                <button class="tab-btn" onclick="handleCategoryClick(event, 'pinas')">Piñas Decoradas</button>
+                <button class="tab-btn" onclick="handleCategoryClick(event, 'tortas')">Tortas para cada ocasión</button>
                 <button class="tab-btn" onclick="handleCategoryClick(event, 'mayor')">Ventas al Por Mayor</button>
             </div>
 
@@ -405,32 +405,38 @@ footer { background: var(--white); padding: 6rem 5%; text-align: center; border-
     <script>
         const menuData = {
             salados: [
-                { name: "Empanadas Artesanales", desc: "Pollo, Carne, Mixtas, Jamón/Queso, Aceituna", price: "S/. 70 x 100u", tag: "Tradicional", img: "https://images.pexels.com/photos/13689920/pexels-photo-13689920.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Enrollados Especiales", desc: "Plátano con Queso, Hot Dog o Solo Queso", price: "S/. 65-70 x 100u", tag: "Popular", img: "https://images.pexels.com/photos/18153387/pexels-photo-18153387.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Pitipanes de Gala", desc: "Pollo con apio, acelgas o el clásico Triple", price: "S/. 80-90 x 100u", tag: "Elite", img: "https://images.pexels.com/photos/13689920/pexels-photo-13689920.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Mini Hamburguesas", desc: "Carne seleccionada en pan brioche", price: "S/. 150 x 100u", tag: "Catering", img: "https://images.pexels.com/photos/13689920/pexels-photo-13689920.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Mini Pizzas", desc: "Salsa napolitana casera y queso fundido", price: "S/. 180 x 100u", tag: "Caliente", img: "https://images.pexels.com/photos/13689920/pexels-photo-13689920.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Variedad Salada", desc: "Causitas, Chicharrón de pollo, Croissants", price: "S/. 110-120 x 100u", tag: "Buffet", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" }
+                { name: "Empanadas Artesanales", desc: "Pollo, Carne, Mixtas, Jamón/Queso, Aceituna", price: "S/. 70 x 100u", tag: "Tradicional", img: "Empanadas x12.jpg" },
+                { name: "Enrollados Especiales", desc: "Plátano con Queso, Hot Dog o Solo Queso", price: "S/. 65-70 x 100u", tag: "Popular", img: "Enrollados Especiales.jpg" },
+                { name: "Pitipanes de Gala", desc: "Pollo con apio, el clásico Triple", price: "S/. 80-90 x 100u", tag: "Elite", img: "Pitipanes de Gala.jpg" },
+                { name: "Mini Hamburguesas", desc: "Carne seleccionada en pan brioche", price: "S/. 150 x 100u", tag: "Catering", img: "Mini Hamburguesas.png" },
+                { name: "Mini Pizzas", desc: "Salsa napolitana casera y queso fundido", price: "S/. 180 x 100u", tag: "Caliente", img: "Mini Pizzas.jpg" },
+                { name: "Variedad Salada", desc: "Causitas, Chicharrón de pollo, Croissants", price: "S/. 110-120 x 100u", tag: "Buffet", img: "salados_jungle.png" }
             ],
             dulces: [
-                { name: "Alfajores de Maicena", desc: "Especialidad de la casa con manjar", price: "S/. 70 x 100u", tag: "El de Siempre", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Mini Pay Artesanal", desc: "De Manzana o Piña fresca de la zona", price: "S/. 70-90 x 100u", tag: "Fruta Real", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Mil Hojitas", desc: "Increíble masa hojaldrada y manjar", price: "S/. 75 x 100u", tag: "Croquante", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Dulces Tradicionales", desc: "Condesas, Maisillos, Cocadas, Budín", price: "S/. 50-70 x 100u", tag: "Clásico", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Tartaletas y Cupcakes", desc: "Variedad de sabores y decoraciones", price: "S/. 130-150 x 100u", tag: "Eventos", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Dulce Final", desc: "Piononitos, Orejas, Donas glaseadas", price: "S/. 80-95 x 100u", tag: "Surtido", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" }
+                { name: "Alfajores de Maicena", desc: "Especialidad de la casa con manjar", price: "S/. 70 x 100u", tag: "El de Siempre", img: "Alfajores de Maicena.jpg" },
+                { name: "Mini Pay Artesanal", desc: "De Manzana o Piña fresca de la zona", price: "S/. 70-90 x 100u", tag: "Fruta Real", img: "Mini Pay Artesanal.jpg" },
+                { name: "Mil Hojitas", desc: "Increíble masa hojaldrada y manjar", price: "S/. 75 x 100u", tag: "Croquante", img: "Mil Hojitas.jpg" },
+                { name: "Dulces Tradicionales", desc: "Condesas, Maisillos, Cocadas, Budín", price: "S/. 50-70 x 100u", tag: "Clásico", img: "Condesas, Maisillos, Cocadas, Budín.jpg" },
+                { name: "Tartaletas y Cupcakes", desc: "Variedad de sabores y decoraciones", price: "S/. 130-150 x 100u", tag: "Eventos", img: "Tartaletas y Cupcakes.jpg" },
+                { name: "Dulce Final", desc: "Piononitos, Orejas, Donas glaseadas", price: "S/. 80-95 x 100u", tag: "Surtido", img: "Donas - Churros - Alfajores.jpg" },
+                { name: "Piña Queso y Choclo", desc: "Elegancia regional en tu mesa", price: "S/. 50", tag: "Fruta Tropical", img: "Piña Queso y Choclo.jpg" },
+                { name: "Piña Jamón y Queso", desc: "Sabor equilibrado y presentación única", price: "S/. 35", tag: "Fruta Tropical", img: "Piña Jamón y Queso.jpg" },
+                { name: "Piña Huevito Codorniz", desc: "Nutrición y estilo para tus invitados", price: "S/. 50", tag: "Fruta Tropical", img: "Piña Huevito Codorniz.jpg" },
+                { name: "Piña Mixta Especial", desc: "La combinación perfecta de sabores", price: "S/. 55", tag: "Fruta Tropical", img: "Piña Mixta Especial.jpg" }
             ],
-            pinas: [
-                { name: "Piña Queso y Choclo", desc: "Elegancia regional en tu mesa", price: "S/. 50", tag: "Showpiece", img: "https://i.pinimg.com/736x/87/25/71/872571343719b457816f183764835821.jpg" },
-                { name: "Piña Jamón y Queso", desc: "Sabor equilibrado y presentación única", price: "S/. 35", tag: "Best Buy", img: "https://i.pinimg.com/736x/87/25/71/872571343719b457816f183764835821.jpg" },
-                { name: "Piña Huevito Codorniz", desc: "Nutrición y estilo para tus invitados", price: "S/. 50", tag: "Premium", img: "https://i.pinimg.com/736x/87/25/71/872571343719b457816f183764835821.jpg" },
-                { name: "Piña Mixta Especial", desc: "La combinación perfecta de sabores", price: "S/. 55", tag: "Top Tier", img: "https://i.pinimg.com/736x/87/25/71/872571343719b457816f183764835821.jpg" }
+            tortas: [
+                { name: "Torta Felicita", desc: "Diseño elegante para momentos especiales", price: "S/. COTIZAR", tag: "Premium", img: "torta_felicita.jpg" },
+                { name: "Torta para Salones", desc: "Ideal para eventos grandes y celebraciones", price: "S/. COTIZAR", tag: "Gran Evento", img: "torta_salones.jpg" },
+                { name: "Tortas Familiares", desc: "El sabor de casa para compartir", price: "S/. COTIZAR", tag: "Familiar", img: "tortas familiares.jpg" },
+                { name: "Tortas Familiares Especial", desc: "Decoraciones únicas para tu familia", price: "S/. COTIZAR", tag: "Familiar", img: "tortas familiares2.jpg" },
+                { name: "Torta de Graduación", desc: "Celebra tus logros con estilo", price: "S/. COTIZAR", tag: "Graduación", img: "tortas_graduacion.jpg" },
+                { name: "Tortas para Niños", desc: "Diseños divertidos y coloridos", price: "S/. COTIZAR", tag: "Niños", img: "tortas_niños.jpg" }
             ],
             mayor: [
-                { name: "Empanadas x12", desc: "Pollo, Carne, Mixtas o Hawayanos", price: "S/. 30-35", tag: "Pack x12", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Donas / Churros / Alfajores", desc: "Caja de 12 unidades frescas", price: "S/. 9", tag: "Súper Precio", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Cremas y Kekes", desc: "Crema volteada molde o kekes frutales", price: "S/. 13-50", tag: "Familiar", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" },
-                { name: "Triples x12", desc: "El mejor acompañamiento para tu break", price: "S/. 35", tag: "Ofician", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" }
+                { name: "Empanadas x12", desc: "Pollo, Carne, Mixtas o Hawayanos", price: "S/. 30-35", tag: "Pack x12", img: "Empanadas x12.jpg" },
+                { name: "Donas / Churros / Alfajores", desc: "Caja de 12 unidades frescas", price: "S/. 9", tag: "Súper Precio", img: "Donas - Churros - Alfajores.jpg" },
+                { name: "Cremas y Kekes", desc: "Crema volteada molde o kekes frutales", price: "S/. 13-50", tag: "Familiar", img: "Cremas y Kekes.jpg" },
+                { name: "Triples x12", desc: "El mejor acompañamiento para tu break", price: "S/. 35", tag: "Oficina", img: "Triples.jpg" }
             ]
         };
 
