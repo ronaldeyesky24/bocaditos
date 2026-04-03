@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flyer Fredy's Bocaditos - Version 3 (Visual Feast)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #0B3D1D;
+            --leaf-green: #2E7D32;
+            --wood-brown: #5D4037;
+            --accent-gold: #FBC02D;
+            --tropical-orange: #FF8F00;
+            --tropical-red: #D62828;
+            --bg-cream: #F1F4F0;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 1000px;
+            height: 1200px;
+        }
+
+        .flyer {
+            width: 1000px;
+            height: 1200px;
+            background: linear-gradient(135deg, #fdfdfd 0%, #f1f4f0 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Product-Filled Background Overlay */
+        .full-bg-layer {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            opacity: 0.25;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            filter: blur(3px) brightness(1.2);
+        }
+
+        .full-bg-layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hero Image: Pichari Landscape */
+        .hero-landscape {
+            height: 480px;
+            background: url('hero_jungle_bocaditos.png') center/cover;
+            position: relative;
+            z-index: 5;
+            border-bottom: 10px solid var(--accent-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-landscape::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4));
+        }
+
+        /* Floating Logo with "Chef Hat" style */
+        .logo-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 220px;
+            background: white;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            z-index: 100;
+            border: 4px solid var(--accent-gold);
+            transform: rotate(-3deg);
+        }
+
+        .logo-badge img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Floating Product Circle Overlays */
+        .product-bubble {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            z-index: 50;
+        }
+
+        .bubble-1 { top: 500px; right: 30px; transform: rotate(5deg); }
+        .bubble-2 { top: 550px; left: 30px; transform: rotate(-8deg); width: 140px; height: 140px; }
+
+        .product-bubble img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Title Area */
+        .title-section {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-top: -60px;
+            padding: 0 50px;
+        }
+
+        .brand-box {
+            background: white;
+            padding: 20px 60px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--primary-green);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .brand-slogan {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: var(--leaf-green);
+            margin-top: 5px;
+            font-weight: 700;
+        }
+
+        .golden-slogan {
+            position: absolute;
+            top: 60px;
+            right: 40px;
+            width: 600px;
+            text-align: center;
+            z-index: 120;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 950;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #bf953f 0%, #fcf6ba 45%, #b38728 50%, #fbf5b7 55%, #aa771c 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 1px #804d00) drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+            text-shadow: 
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        .location-tag {
+            background: var(--tropical-orange);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(255,143,0,0.3);
+        }
+
+        /* Price List: Columns */
+        .pricing-section {
+            position: relative;
+            z-index: 10;
+            flex-grow: 1;
+            padding: 40px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            border-top: 12px solid var(--primary-green);
+            position: relative;
+            z-index: 10;
+        }
+
+        .price-card.dulce { border-top-color: #E91E63; }
+
+        .image-overlay-bg {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 180px;
+            height: 180px;
+            opacity: 0.3;
+            z-index: -1;
+            filter: drop-shadow(0 0 20px rgba(0,0,0,0.2));
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed #ddd;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .price-list { list-style: none; }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #222;
+            font-size: 1rem;
+        }
+
+        .dots { flex-grow: 1; border-bottom: 1px dotted #aaa; margin: 0 8px; }
+
+        .price-val {
+            color: var(--wood-brown);
+            background: #f8f8f8;
+            padding: 3px 12px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        .footer {
+            height: 160px;
+            background: linear-gradient(to right, var(--primary-green), #051A0D);
+            position: relative;
+            z-index: 10;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            border-top: 10px solid var(--accent-gold);
+        }
+
+        .contact-info b { color: var(--accent-gold); font-size: 1.2rem; }
+        .wa-btn {
+            background: #25D366;
+            padding: 12px 25px;
+            border-radius: 100px;
+            font-weight: 900;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .footer-text { text-align: right; }
+        .footer-text p { font-size: 0.9rem; opacity: 0.8; }
+        .pichari-love { font-family: 'Caveat'; font-size: 1.8rem; color: var(--accent-gold); margin-top: 5px; }
+
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <!-- Background Tiled Products -->
+        <div class="full-bg-layer">
+            <img src="torta_felicita.jpg" alt="Product">
+            <img src="gift_box_bocaditos_1773554109225.png" alt="Product">
+            <img src="salados_jungle.png" alt="Product">
+            <img src="premium_hero_bocaditos_1773554037156.png" alt="Product">
+            <img src="Piña Mixta Especial.jpg" alt="Product">
+            <img src="Mil Hojitas.jpg" alt="Product">
+            <img src="catering_showcase_fredys_1773554057382.png" alt="Product">
+            <img src="torta_salones.jpg" alt="Product">
+            <img src="salados_jungle.png" alt="Product">
+            <img src="tortas familiares.jpg" alt="Product">
+            <img src="Piña Queso y Choclo.jpg" alt="Product">
+            <img src="Pitipanes de Gala.jpg" alt="Product">
+        </div>
+
+        <div class="golden-slogan">ENDULZAMOS TUS MOMENTOS</div>
+
+        <!-- Logo Badge -->
+        <div class="logo-badge">
+            <img src="bocaditos.jpg" alt="Fredy's Logo">
+        </div>
+
+        <!-- Hero: Pichari Landscape -->
+        <div class="hero-landscape"></div>
+
+        <!-- Product Bubbles -->
+        <div class="product-bubble bubble-1">
+            <img src="torta_felicita.jpg" alt="Product Detail">
+        </div>
+        <div class="product-bubble bubble-2">
+            <img src="Piña Mixta Especial.jpg" alt="Product Detail">
+        </div>
+
+        <!-- Title Section -->
+        <div class="title-section">
+            <div class="brand-box">
+                <h1 class="brand-name">FREDY'S BOCADITOS</h1>
+                <p class="brand-slogan">Sabor, Tradición y Amor en cada bocado</p>
+                <div class="location-tag">✨ PICHARI - CUSCO - PERU ✨</div>
+            </div>
+        </div>
+
+        <div class="pricing-section">
+            <div class="price-card">
+                <img src="Mini Pizzas.jpg" class="image-overlay-bg" alt="Decor">
+                <h2 class="card-title">Bocaditos Salados</h2>
+                <ul class="price-list">
+                    <li class="price-row">Empanadas Artesanales <span class="dots"></span> <span class="price-val">S/. 70 x 100 u</span></li>
+                    <li class="price-row">Enrollados de Plátano <span class="dots"></span> <span class="price-val">S/. 65 x 100 u</span></li>
+                    <li class="price-row">Pitipanes / Triples <span class="dots"></span> <span class="price-val">S/. 85 x 100 u</span></li>
+                    <li class="price-row">Mini Hamburguesas <span class="dots"></span> <span class="price-val">S/. 150 x 100 u</span></li>
+                    <li class="price-row">Mini Pizzas Especiales <span class="dots"></span> <span class="price-val">S/. 180 x 100 u</span></li>
+                    <li class="price-row">Causitas / Chicharrón <span class="dots"></span> <span class="price-val">S/. 120 x 100 u</span></li>
+                </ul>
+            </div>
+            <div class="price-card dulce">
+                <img src="Alfajores de Maicena.jpg" class="image-overlay-bg" alt="Decor">
+                <h2 class="card-title">Bocaditos Dulces</h2>
+                <ul class="price-list">
+                    <li class="price-row">Alfajores de Maicena <span class="dots"></span> <span class="price-val">S/. 70 x 100 u</span></li>
+                    <li class="price-row">Mini Pay de Manzana <span class="dots"></span> <span class="price-val">S/. 80 x 100 u</span></li>
+                    <li class="price-row">Mil Hojitas Crocantes <span class="dots"></span> <span class="price-val">S/. 75 x 100 u</span></li>
+                    <li class="price-row">Tartaletas de Fruta <span class="dots"></span> <span class="price-val">S/. 140 x 100 u</span></li>
+                    <li class="price-row">Piononitos / Orejas <span class="dots"></span> <span class="price-val">S/. 85 x 100 u</span></li>
+                    <li class="price-row">Donas / Churros <span class="dots"></span> <span class="price-val">S/. 95 x 100 u</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="contact-area">
+                <p>PEDIDOS CON 24H DE ANTICIPACIÓN:</p>
+                <div class="wa-btn">WhatsApp: 962839385</div>
+            </div>
+            <div class="footer-text">
+                <p>📍 Jr. Santos Jáuregui, Pichari - VRAEM</p>
+                <p><b>DELICIAS DE LA SELVA PARA TU MESA</b></p>
+                <div class="pichari-love">Desde el corazón de la selva de Cusco para ti</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
