@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA CASA DE BOCADITOS FREDY'S | Sabor de la Selva Peruana</title>
+    <link rel="icon" href="https://files.catbox.moe/u2t83g.png" type="image/x-icon">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --primary-green: #0B3D1D; 
+    --leaf-green: #2E7D32;
+    --wood-brown: #5D4037;
+    --accent-gold: #FBC02D;
+    --tropical-orange: #FF8F00;
+    --bg-cream: #F1F4F0;
+    --white: #ffffff;
+    --text-dark: #1B1B1B;
+    --text-light: #555555;
+    --shadow: 0 15px 45px rgba(0,0,0,0.1);
+    --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Outfit', sans-serif; 
+    background-color: var(--bg-cream); 
+    color: var(--text-dark); 
+    line-height: 1.6; 
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; font-weight: 800; }
+
+header { 
+    background: var(--white); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+}
+
+.top-bar { 
+    background: linear-gradient(90deg, var(--primary-green), var(--leaf-green)); 
+    color: var(--white); 
+    padding: 10px 0; 
+    text-align: center; 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+    letter-spacing: 1.5px; 
+    text-transform: uppercase;
+}
+
+.top-bar a { color: var(--accent-gold); text-decoration: none; margin-left: 15px; border-bottom: 1px solid var(--accent-gold); }
+
+.navbar { 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    padding: 1rem 5%; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
+
+.logo { 
+    font-size: 1.8rem; 
+    color: var(--primary-green); 
+    text-decoration: none; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span { font-style: italic; color: var(--tropical-orange); }
+
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--text-dark); 
+    font-size: 0.95rem; 
+    font-weight: 600; 
+    transition: var(--transition); 
+}
+
+.nav-links a:hover { color: var(--leaf-green); transform: translateY(-3px); }
+
+/* Hero Section */
+.hero { 
+    height: 90vh; 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    background: url('hero_jungle_bocaditos.png') no-repeat center center/cover;
+}
+
+.hero-overlay { 
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+}
+
+.hero-content { 
+    position: relative;
+    z-index: 2;
+    text-align: center; 
+    color: var(--white); 
+    max-width: 900px; 
+    padding: 2rem;
+}
+
+.hero h1 { font-size: 5rem; margin-bottom: 1.5rem; text-shadow: 2px 4px 10px rgba(0,0,0,0.5); }
+.hero p { font-size: 1.6rem; margin-bottom: 3.5rem; font-weight: 300; }
+
+.btn { 
+    display: inline-block; 
+    padding: 1.2rem 3.5rem; 
+    background: var(--accent-gold); 
+    color: var(--primary-green); 
+    text-decoration: none; 
+    font-weight: 800; 
+    border-radius: 50px; 
+    transition: var(--transition); 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px;
+    box-shadow: 0 10px 25px rgba(251, 192, 45, 0.4);
+}
+
+.btn:hover { 
+    transform: scale(1.05) translateY(-5px); 
+    background: var(--white);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Menu Section */
+.menu-section { padding: 8rem 5%; max-width: 1400px; margin: 0 auto; }
+
+.section-header { text-align: center; margin-bottom: 6rem; }
+.section-header h2 { font-size: 3.5rem; color: var(--primary-green); margin-bottom: 1rem; }
+.section-header p { font-size: 1.2rem; color: var(--text-light); }
+
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 1rem 2.5rem;
+    border: 2px solid var(--primary-green);
+    background: transparent;
+    color: var(--primary-green);
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--primary-green);
+    color: var(--white);
+}
+
+.menu-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 3rem; 
+    transition: opacity 0.3s ease;
+}
+
+.menu-item {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item:hover { transform: translateY(-10px); border-color: var(--leaf-green); }
+
+.item-badge {
+    background: var(--tropical-orange);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.menu-item h3 { font-size: 1.6rem; color: var(--primary-green); margin-bottom: 0.7rem; }
+.menu-item p { color: var(--text-light); font-size: 1rem; margin-bottom: 2rem; }
+.menu-item .price { font-size: 2rem; font-weight: 800; color: var(--wood-brown); }
+
+/* Form Section */
+.order-section { 
+    background: linear-gradient(135deg, var(--primary-green), #062311); 
+    color: var(--white); 
+    padding: 8rem 5%; 
+    border-radius: 80px 80px 0 0;
+}
+
+.form-container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+    background: rgba(255,255,255,0.05); 
+    padding: 5rem; 
+    border-radius: 50px; 
+    backdrop-filter: blur(20px); 
+    border: 1px solid rgba(255,255,255,0.1); 
+    box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+}
+
+/* Whatsapp Float */
+.whatsapp-float { 
+    position: fixed; 
+    bottom: 50px; 
+    right: 50px; 
+    background: #25D366; 
+    color: white; 
+    padding: 0; 
+    border-radius: 100px; 
+    display: flex; 
+    align-items: center; 
+    gap: 0; 
+    z-index: 1001; 
+    text-decoration: none; 
+    transition: var(--transition);
+    overflow: visible;
+    width: auto;
+    height: 90px;
+    box-shadow: 0 20px 50px rgba(37, 211, 102, 0.4);
+}
+
+.capybara-img {
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    left: -50px;
+    bottom: -15px;
+    transition: var(--transition);
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.3));
+}
+
+.whatsapp-float span {
+    margin-left: 90px;
+    margin-right: 50px;
+    font-weight: 800;
+    font-size: 1.3rem;
+    white-space: nowrap;
+}
+
+.whatsapp-float:hover { 
+    transform: scale(1.08) translateY(-15px); 
+}
+
+.whatsapp-float:hover .capybara-img {
+    transform: scale(1.2) rotate(15deg) translateY(-10px);
+}
+
+/* Footer */
+footer { background: var(--white); padding: 6rem 5%; text-align: center; border-top: 1px solid #eee; }
+
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 4rem; }
+    .hero p { font-size: 1.4rem; }
+}
+
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 1rem; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero p { font-size: 1.1rem; }
+    .whatsapp-float span { display: none; }
+    .whatsapp-float { width: 90px; }
+    .capybara-img { left: -20px; }
+    .form-container { padding: 2.5rem; }
+}
+
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        Sabor y tradición en el corazón de Pichari. Entregas en todo el VRAEM.
+        <a href="https://wa.me/51962839385">962839385</a>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo brand-font"><span>FREDY'S</span> BOCADITOS</a>
+            <ul class="nav-links">
+                <li><a href="#menu">NUESTRO MENÚ</a></li>
+                <li><a href="#cotizacion">COTIZAR</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>El Tesoro de la Selva</h1>
+                <p>Artesanía peruana que celebra cada momento. Bocaditos frescos hechos con amor en Pichari, Cusco.</p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <a href="#menu" class="btn">VER PRECIOS</a>
+                    <a href="#cotizacion" class="btn" style="background: var(--white); color: var(--primary-green);">PEDIR AHORA</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="menu">
+            <div class="section-header">
+                <h2>Cofre de Sabores</h2>
+                <p>Nuestra lista de precios actualizada. Todos los pedidos con 24h de anticipación.</p>
+            </div>
+
+            <div class="category-tabs">
+                <button class="tab-btn active" onclick="handleCategoryClick(event, 'salados')">Bocaditos Salados</button>
+                <button class="tab-btn" onclick="handleCategoryClick(event, 'dulces')">Bocaditos Dulces</button>
+                <button class="tab-btn" onclick="handleCategoryClick(event, 'pinas')">Piñas Decoradas</button>
+                <button class="tab-btn" onclick="handleCategoryClick(event, 'mayor')">Ventas al Por Mayor</button>
+            </div>
+
+            <div class="menu-grid" id="menuContainer">
+                <!-- Items injected via JS -->
+            </div>
+            
+            <p style="text-align: center; margin-top: 4rem; font-weight: 600; color: var(--wood-brown); background: var(--white); display: inline-block; padding: 1rem 2rem; border-radius: 50px; left: 50%; position: relative; transform: translateX(-50%);">
+                🚨 NOTA: Todos los pedidos requieren 24 horas de anticipación.
+            </p>
+        </section>
+
+        <section class="order-section" id="cotizacion">
+            <div class="form-container">
+                <div class="section-header" style="color: white;">
+                    <h2 style="color: var(--accent-gold);">¡Cotiza tu Evento!</h2>
+                    <p>Déjanos tus datos y nos pondremos en contacto para coordinar tu pedido.</p>
+                </div>
+                <!-- Simplified Aesthetic Form -->
+                <form id="contactForm" style="display: grid; gap: 1.5rem; margin-top: 3rem;">
+                    <input type="text" placeholder="Nombre Completo" style="padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; font-family: inherit;">
+                    <input type="tel" placeholder="Número de WhatsApp" style="padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; font-family: inherit;">
+                    <textarea rows="4" placeholder="¿Qué bocaditos te interesan? Cuéntanos sobre tu evento..." style="padding: 1.5rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; font-family: inherit;"></textarea>
+                    <button class="btn" type="button" style="width: 100%; font-size: 1.1rem;">ENVIAR CONSULTA AL INSTANTE</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <p>&copy; 2026 La Casa de los Bocaditos Fredy's. Hecho con orgullo en Pichari, VRAEM.</p>
+        <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--text-light); letter-spacing: 1px;">"Amor es compartir el postre"</p>
+        <div style="margin-top: 2rem;">
+            Jr. Santos Jáuregui, Pichari - Cusco | 962839385
+        </div>
+    </footer>
+
+    <a href="https://wa.me/51962839385?text=Hola%20Fredy's%2C%20quisiera%20más%20información%20sobre%20tus%20bocaditos" class="whatsapp-float">
+        <img src="capybara_chef_icon.png" alt="Capibara Chef" class="capybara-img">
+        <span>Chat con Fredy's</span>
+    </a>
+
+    <script>
+        const menuData = {
+            salados: [
+                { name: "Empanadas Artesanales", desc: "Pollo, Carne, Mixtas, Jamón/Queso, Aceituna", price: "S/. 70 x 100u", tag: "Tradicional" },
+                { name: "Enrollados Especiales", desc: "Plátano con Queso, Hot Dog o Solo Queso", price: "S/. 65-70 x 100u", tag: "Popular" },
+                { name: "Pitipanes de Gala", desc: "Pollo con apio, acelgas o el clásico Triple", price: "S/. 80-90 x 100u", tag: "Elite" },
+                { name: "Mini Hamburguesas", desc: "Carne seleccionada en pan brioche", price: "S/. 150 x 100u", tag: "Catering" },
+                { name: "Mini Pizzas", desc: "Salsa napolitana casera y queso fundido", price: "S/. 180 x 100u", tag: "Caliente" },
+                { name: "Variedad Salada", desc: "Causitas, Chicharrón de pollo, Croissants", price: "S/. 110-120 x 100u", tag: "Buffet" }
+            ],
+            dulces: [
+                { name: "Alfajores de Maicena", desc: "Especialidad de la casa con manjar", price: "S/. 70 x 100u", tag: "El de Siempre" },
+                { name: "Mini Pay Artesanal", desc: "De Manzana o Piña fresca de la zona", price: "S/. 70-90 x 100u", tag: "Fruta Real" },
+                { name: "Mil Hojitas", desc: "Increíble masa hojaldrada y manjar", price: "S/. 75 x 100u", tag: "Croquante" },
+                { name: "Dulces Tradicionales", desc: "Condesas, Maisillos, Cocadas, Budín", price: "S/. 50-70 x 100u", tag: "Clásico" },
+                { name: "Tartaletas y Cupcakes", desc: "Variedad de sabores y decoraciones", price: "S/. 130-150 x 100u", tag: "Eventos" },
+                { name: "Dulce Final", desc: "Piononitos, Orejas, Donas glaseadas", price: "S/. 80-95 x 100u", tag: "Surtido" }
+            ],
+            pinas: [
+                { name: "Piña Queso y Choclo", desc: "Elegancia regional en tu mesa", price: "S/. 50", tag: "Showpiece" },
+                { name: "Piña Jamón y Queso", desc: "Sabor equilibrado y presentación única", price: "S/. 35", tag: "Best Buy" },
+                { name: "Piña Huevito Codorniz", desc: "Nutrición y estilo para tus invitados", price: "S/. 50", tag: "Premium" },
+                { name: "Piña Mixta Especial", desc: "La combinación perfecta de sabores", price: "S/. 55", tag: "Top Tier" }
+            ],
+            mayor: [
+                { name: "Empanadas x12", desc: "Pollo, Carne, Mixtas o Hawayanos", price: "S/. 30-35", tag: "Pack x12" },
+                { name: "Donas / Churros / Alfajores", desc: "Caja de 12 unidades frescas", price: "S/. 9", tag: "Súper Precio" },
+                { name: "Cremas y Kekes", desc: "Crema volteada molde o kekes frutales", price: "S/. 13-50", tag: "Familiar" },
+                { name: "Triples x12", desc: "El mejor acompañamiento para tu break", price: "S/. 35", tag: "Ofician" }
+            ]
+        };
+
+        function handleCategoryClick(e, category) {
+            const btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+            renderMenu(category);
+        }
+
+        function renderMenu(category) {
+            const container = document.getElementById('menuContainer');
+            container.style.opacity = 0;
+            
+            setTimeout(() => {
+                container.innerHTML = menuData[category].map(item => `
+                    <div class="menu-item">
+                        ${item.tag ? `<span class="item-badge">${item.tag}</span>` : ''}
+                        <h3>${item.name}</h3>
+                        <p>${item.desc}</p>
+                        <div class="price">${item.price}</div>
+                    </div>
+                `).join('');
+                container.style.opacity = 1;
+            }, 300);
+        }
+
+        // Initialize
+        window.onload = () => renderMenu('salados');
+    </script>
+</body>
+</html>
