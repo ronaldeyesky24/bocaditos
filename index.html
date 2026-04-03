@@ -6,7 +6,7 @@
     <title>LA CASA DE BOCADITOS FREDY'S | Sabor de la Selva Peruana</title>
     <link rel="icon" href="https://files.catbox.moe/u2t83g.png" type="image/x-icon">
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Caveat:wght@400..700&display=swap');
 
 :root {
     --primary-green: #0B3D1D; 
@@ -51,6 +51,8 @@ header {
     font-weight: 600; 
     letter-spacing: 1.5px; 
     text-transform: uppercase;
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
 }
 
 .top-bar a { color: var(--accent-gold); text-decoration: none; margin-left: 15px; border-bottom: 1px solid var(--accent-gold); }
@@ -183,25 +185,54 @@ header {
     text-align: center;
     position: relative;
     overflow: hidden;
+    background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.02) 1px, transparent 0);
+    background-size: 24px 24px;
 }
 
 .menu-item:hover { transform: translateY(-10px); border-color: var(--leaf-green); }
 
 .item-badge {
+    font-family: 'Caveat', cursive;
     background: var(--tropical-orange);
     color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: none;
     margin-bottom: 1rem;
     display: inline-block;
 }
 
 .menu-item h3 { font-size: 1.6rem; color: var(--primary-green); margin-bottom: 0.7rem; }
-.menu-item p { color: var(--text-light); font-size: 1rem; margin-bottom: 2rem; }
-.menu-item .price { font-size: 2rem; font-weight: 800; color: var(--wood-brown); }
+.menu-item p { color: var(--text-light); font-size: 1rem; margin-bottom: 2rem; flex-grow: 1; }
+.menu-item .price { font-size: 2rem; font-weight: 800; color: var(--wood-brown); margin-top: auto; }
+
+.item-img-container {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.item-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.menu-item:hover .item-img-container img {
+    transform: scale(1.1);
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
 /* Form Section */
 .order-section { 
@@ -374,32 +405,32 @@ footer { background: var(--white); padding: 6rem 5%; text-align: center; border-
     <script>
         const menuData = {
             salados: [
-                { name: "Empanadas Artesanales", desc: "Pollo, Carne, Mixtas, Jamón/Queso, Aceituna", price: "S/. 70 x 100u", tag: "Tradicional" },
-                { name: "Enrollados Especiales", desc: "Plátano con Queso, Hot Dog o Solo Queso", price: "S/. 65-70 x 100u", tag: "Popular" },
-                { name: "Pitipanes de Gala", desc: "Pollo con apio, acelgas o el clásico Triple", price: "S/. 80-90 x 100u", tag: "Elite" },
-                { name: "Mini Hamburguesas", desc: "Carne seleccionada en pan brioche", price: "S/. 150 x 100u", tag: "Catering" },
-                { name: "Mini Pizzas", desc: "Salsa napolitana casera y queso fundido", price: "S/. 180 x 100u", tag: "Caliente" },
-                { name: "Variedad Salada", desc: "Causitas, Chicharrón de pollo, Croissants", price: "S/. 110-120 x 100u", tag: "Buffet" }
+                { name: "Empanadas Artesanales", desc: "Pollo, Carne, Mixtas, Jamón/Queso, Aceituna", price: "S/. 70 x 100u", tag: "Tradicional", img: "https://images.pexels.com/photos/13689920/pexels-photo-13689920.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Enrollados Especiales", desc: "Plátano con Queso, Hot Dog o Solo Queso", price: "S/. 65-70 x 100u", tag: "Popular", img: "https://images.pexels.com/photos/18153387/pexels-photo-18153387.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Pitipanes de Gala", desc: "Pollo con apio, acelgas o el clásico Triple", price: "S/. 80-90 x 100u", tag: "Elite", img: "https://images.pexels.com/photos/13689920/pexels-photo-13689920.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Mini Hamburguesas", desc: "Carne seleccionada en pan brioche", price: "S/. 150 x 100u", tag: "Catering", img: "https://images.pexels.com/photos/13689920/pexels-photo-13689920.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Mini Pizzas", desc: "Salsa napolitana casera y queso fundido", price: "S/. 180 x 100u", tag: "Caliente", img: "https://images.pexels.com/photos/13689920/pexels-photo-13689920.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Variedad Salada", desc: "Causitas, Chicharrón de pollo, Croissants", price: "S/. 110-120 x 100u", tag: "Buffet", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" }
             ],
             dulces: [
-                { name: "Alfajores de Maicena", desc: "Especialidad de la casa con manjar", price: "S/. 70 x 100u", tag: "El de Siempre" },
-                { name: "Mini Pay Artesanal", desc: "De Manzana o Piña fresca de la zona", price: "S/. 70-90 x 100u", tag: "Fruta Real" },
-                { name: "Mil Hojitas", desc: "Increíble masa hojaldrada y manjar", price: "S/. 75 x 100u", tag: "Croquante" },
-                { name: "Dulces Tradicionales", desc: "Condesas, Maisillos, Cocadas, Budín", price: "S/. 50-70 x 100u", tag: "Clásico" },
-                { name: "Tartaletas y Cupcakes", desc: "Variedad de sabores y decoraciones", price: "S/. 130-150 x 100u", tag: "Eventos" },
-                { name: "Dulce Final", desc: "Piononitos, Orejas, Donas glaseadas", price: "S/. 80-95 x 100u", tag: "Surtido" }
+                { name: "Alfajores de Maicena", desc: "Especialidad de la casa con manjar", price: "S/. 70 x 100u", tag: "El de Siempre", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Mini Pay Artesanal", desc: "De Manzana o Piña fresca de la zona", price: "S/. 70-90 x 100u", tag: "Fruta Real", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Mil Hojitas", desc: "Increíble masa hojaldrada y manjar", price: "S/. 75 x 100u", tag: "Croquante", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Dulces Tradicionales", desc: "Condesas, Maisillos, Cocadas, Budín", price: "S/. 50-70 x 100u", tag: "Clásico", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Tartaletas y Cupcakes", desc: "Variedad de sabores y decoraciones", price: "S/. 130-150 x 100u", tag: "Eventos", img: "https://images.pexels.com/photos/1721935/pexels-photo-1721935.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Dulce Final", desc: "Piononitos, Orejas, Donas glaseadas", price: "S/. 80-95 x 100u", tag: "Surtido", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" }
             ],
             pinas: [
-                { name: "Piña Queso y Choclo", desc: "Elegancia regional en tu mesa", price: "S/. 50", tag: "Showpiece" },
-                { name: "Piña Jamón y Queso", desc: "Sabor equilibrado y presentación única", price: "S/. 35", tag: "Best Buy" },
-                { name: "Piña Huevito Codorniz", desc: "Nutrición y estilo para tus invitados", price: "S/. 50", tag: "Premium" },
-                { name: "Piña Mixta Especial", desc: "La combinación perfecta de sabores", price: "S/. 55", tag: "Top Tier" }
+                { name: "Piña Queso y Choclo", desc: "Elegancia regional en tu mesa", price: "S/. 50", tag: "Showpiece", img: "https://i.pinimg.com/736x/87/25/71/872571343719b457816f183764835821.jpg" },
+                { name: "Piña Jamón y Queso", desc: "Sabor equilibrado y presentación única", price: "S/. 35", tag: "Best Buy", img: "https://i.pinimg.com/736x/87/25/71/872571343719b457816f183764835821.jpg" },
+                { name: "Piña Huevito Codorniz", desc: "Nutrición y estilo para tus invitados", price: "S/. 50", tag: "Premium", img: "https://i.pinimg.com/736x/87/25/71/872571343719b457816f183764835821.jpg" },
+                { name: "Piña Mixta Especial", desc: "La combinación perfecta de sabores", price: "S/. 55", tag: "Top Tier", img: "https://i.pinimg.com/736x/87/25/71/872571343719b457816f183764835821.jpg" }
             ],
             mayor: [
-                { name: "Empanadas x12", desc: "Pollo, Carne, Mixtas o Hawayanos", price: "S/. 30-35", tag: "Pack x12" },
-                { name: "Donas / Churros / Alfajores", desc: "Caja de 12 unidades frescas", price: "S/. 9", tag: "Súper Precio" },
-                { name: "Cremas y Kekes", desc: "Crema volteada molde o kekes frutales", price: "S/. 13-50", tag: "Familiar" },
-                { name: "Triples x12", desc: "El mejor acompañamiento para tu break", price: "S/. 35", tag: "Ofician" }
+                { name: "Empanadas x12", desc: "Pollo, Carne, Mixtas o Hawayanos", price: "S/. 30-35", tag: "Pack x12", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Donas / Churros / Alfajores", desc: "Caja de 12 unidades frescas", price: "S/. 9", tag: "Súper Precio", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Cremas y Kekes", desc: "Crema volteada molde o kekes frutales", price: "S/. 13-50", tag: "Familiar", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" },
+                { name: "Triples x12", desc: "El mejor acompañamiento para tu break", price: "S/. 35", tag: "Ofician", img: "https://images.pexels.com/photos/29000752/pexels-photo-29000752.jpeg?auto=compress&cs=tinysrgb&w=600" }
             ]
         };
 
@@ -417,6 +448,9 @@ footer { background: var(--white); padding: 6rem 5%; text-align: center; border-
             setTimeout(() => {
                 container.innerHTML = menuData[category].map(item => `
                     <div class="menu-item">
+                        <div class="item-img-container">
+                            <img src="${item.img}" alt="${item.name}">
+                        </div>
                         ${item.tag ? `<span class="item-badge">${item.tag}</span>` : ''}
                         <h3>${item.name}</h3>
                         <p>${item.desc}</p>
